@@ -15,7 +15,6 @@ const symbols='!@#$%^&*()_+{}|:"<>?';
 let password="";
 let passwordlength=10;
 let checkcount=0;
-//set passowrd length with slider....password length ko UI pe update krta he.
 handleSlider();
 
 function handleSlider(){
@@ -23,15 +22,10 @@ function handleSlider(){
     lengthdisplay.textContent=passwordlength;
 }
 
-//set indicator
-
 function setindicator(color){
     indicator.style.backgroundColor=color;
     indicator.style.boxShadow=`0px 0px 12px 1px ${color}`;
 }
-
-//get randomint
-
 function getrndinteger(min,max){
    return Math.floor(Math.random()*(max-min))+min;
 }
@@ -125,24 +119,7 @@ generatebtn.addEventListener('click',()=>{
     if(passwordlength<checkcount){
         passwordlength=checkcount; handleSlider();
     }
-
-    //Find new password
     password="";
-
-    //put the stuff by checkboxes
-    // if(uppercasecheck.checked){
-    //     password+=generateuppercase();
-    // }
-    // if(lowercasecheck.checked){
-    //     password+=generatelowercase();
-    // }
-    // if(numberscheck.checked){
-    //     password+=generateunumber();
-    // }
-    // if(symbolscheck.checked){
-    //     password+=generatesymbol();
-    // }
-
     let funcarr=[];
     if(uppercasecheck.checked){
         funcarr.push(generateuppercase);
@@ -156,20 +133,17 @@ generatebtn.addEventListener('click',()=>{
     if(symbolscheck.checked){
         funcarr.push(generatesymbol);
     }
-    //compulsory
     for(let i=0;i<funcarr.length;i++){
         password+=funcarr[i]();
     }
-    //remaining
     for(let i=0;i<passwordlength-funcarr.length;i++){
         let randind=getrndinteger(0,funcarr.length);
         password+=funcarr[randind]();
     }
     
-    //show in UI
     passworddisplay.value=password;
-    //calculate strength
     calcStrength();
 });
+
 
 
