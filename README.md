@@ -3,7 +3,7 @@
 A simple and interactive Password Generator web app built with HTML, CSS, and JavaScript.
 Generate strong passwords with customizable length and optional character types, along with a dynamic strength indicator and copy-to-clipboard feature.
 
-🚀 Features
+🚀 Features :-
 
 🎯 Custom Password Length: Adjust from 1–20 characters.
 
